@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<sitemanifest>
+  <IisApp path="D:\Toplu\uygulamalar\Projeler\MVC_Otel_Agac\MVC_Otel_Agac\obj\Release\Package\PackageTmp" />
+  <setAcl path="D:\Toplu\uygulamalar\Projeler\MVC_Otel_Agac\MVC_Otel_Agac\obj\Release\Package\PackageTmp" setAclResourceType="Directory" />
+  <setAcl path="D:\Toplu\uygulamalar\Projeler\MVC_Otel_Agac\MVC_Otel_Agac\obj\Release\Package\PackageTmp" setAclUser="anonymousAuthenticationUser" setAclResourceType="Directory" />
+</sitemanifest>

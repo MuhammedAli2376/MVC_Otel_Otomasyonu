@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="Model1-Web.config Connection String" description="Model1 Veritabanına erişmek için uygulama tarafından web.config'de kullanılan Bağlantı Dizesi." defaultValue="data source=DESKTOP-TO5VRLK\SQLEXPRESS;initial catalog=MVC_OtelAgac;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="D:\\Toplu\\uygulamalar\\Projeler\\MVC_Otel_Agac\\MVC_Otel_Agac\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='Model1']/@connectionString" />
+  </parameter>
+</parameters>

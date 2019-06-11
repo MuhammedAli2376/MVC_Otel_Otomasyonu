@@ -1,0 +1,100 @@
+﻿
+@{
+    ViewBag.Title = "Otel Ekle";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+@section head{
+    <script type="text/javascript" src="/Content/Admin/assets/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/Content/Admin/assets/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+    <script type="text/javascript" src="/Content/Admin/assets/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="/Content/Admin/assets/bootstrap-colorpicker/js/bootstrap-colorpicker.js"></script>
+    <script type="text/javascript" src="/Content/Admin/assets/bootstrap-timepicker/js/bootstrap-timepicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="/Content/Admin/assets/bootstrap-datepicker/css/datepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Admin/assets/bootstrap-timepicker/compiled/timepicker.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Admin/assets/bootstrap-colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Admin/assets/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+    <link rel="stylesheet" type="text/css" href="/Content/Admin/assets/bootstrap-datetimepicker/css/datetimepicker.css" />
+
+
+}
+<br /><br /><br />
+<div class="row">
+    <div class="col-lg-12">
+        <section class="panel">
+            <header class="panel-heading">
+                <h3>Otel Ekle</h3>
+            </header>
+            <div class="panel-body">
+                <form role="form" class="form-horizontal tasi-form" action="/Admin/OtelEkle" method="post">
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Adı</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="Adi">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">İl</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="Il">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">İlce</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="Ilce">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Adres</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="Adres">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Telefon</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="Telefon">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Eposta</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="Eposta">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Yıldız Sayısı</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="YildizSayisi">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Oda Sayısı</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="OdaSayisi">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Oda Tip id</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="OdaTipid">
+                        </div>
+                    </div>
+                    <div class="form-group has-success">
+                        <label class="col-lg-4 ">Otel Puanı</label>
+                        <div class="col-lg-10">
+                            <input type="text" placeholder="" id="f-name" class="form-control" name="OtelPuani">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-lg-offset-2 col-lg-10">
+                            <button class="btn btn-danger" type="submit">Kaydet</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+
+

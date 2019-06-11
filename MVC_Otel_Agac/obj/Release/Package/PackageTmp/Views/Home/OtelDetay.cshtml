@@ -1,0 +1,278 @@
+﻿
+@{
+    ViewBag.Title = "OtelDetay";
+    Layout = "~/Views/Shared/Kullanicilayout.cshtml";
+}
+@model Otel
+    <div class="modal fade" id="write-review" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-review">
+            <div class="modal-content">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>    
+                <h3>Write a review</h3>
+                <form>
+                    <p>Name</p>
+                    <input class="input-line" name="author" type="text">
+                    <p>Website</p>
+                    <input class="input-line" name="author" type="text">
+                    <p>Raiting </p>
+                    <div class="product-rate">
+                        <i class="icon-423" title="full"></i>
+                        <i class="icon-423" title="full"></i>
+                        <i class="icon-423" title="full"></i>
+                        <i class="icon-423" title="full"></i>
+                        <i class="icon-421" title="empty"></i>
+                    </div>
+                    <p>Your review</p>
+                    <textarea class="text-area" name="comment"></textarea>
+                    <a href="#" class="button-6">Write a review</a>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="product-one">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="the-slider product-big-image" data-tesla-plugin="slider" data-tesla-item=".slide" data-tesla-next=".product-image-arrows-right" data-tesla-prev=".product-image-arrows-left" data-tesla-container=".slide-wrapper">
+                            <ul class="product-image-arrows">
+                                <li class="product-image-arrows-left"><i class="icon-517" title="left"></i></li>
+                                <li class="product-image-arrows-right"><i class="icon-501" title="right"></i></li>
+                            </ul>
+                            <ul class="slide-wrapper">
+                                @foreach (var item in Model.Resim)
+                                {
+                                    <li class="slide"><img src="@item.BuyukYol" alt="@Model.Adi" /></li>
+                                }
+                            </ul>
+                            <div class="row">
+                                <ul class="the-bullets-dots" data-tesla-plugin="bullets">
+                                    @foreach (var item in Model.Resim)
+                                    {
+                                        <li><div class="col-md-2 col-xs-2"><img src="@item.OrtaYol" alt="@Model.Adi" /></div></li>
+                                    }
+
+
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2>@Model.Adi</h2>
+                        <div class="product-rate">
+                            @{
+                                int i,sayac=7;
+                                for (i = 0; i < Model.YildizSayisi; i++)
+                                {
+                                    <i class="icon-423" title="full"></i>
+                                }
+                                for (int k = 0; k < sayac-i; k++)
+                                {
+                                    <i class="icon-421" title="empty"></i>
+                                }
+                            }
+                        </div>
+                        <div class="clear"></div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="product-price">Adres</div>
+                                <p>@Model.Adres</p>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="product-price">Telefon</div>
+                                <p>@Model.Telefon </p>
+                            </div>
+                        </div>
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#description" data-toggle="tab">Yorum Yap</a></li>
+                            <li class=""><a href="#reviews" data-toggle="tab">Yorumlar</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="description">
+                                <form role="form" class="form-horizontal tasi-form" action="/Home/YorumYap" method="post">
+                                    <div class="form-group has-success">
+                                        <label class="col-lg-4 ">Yorum</label>
+                                        <div class="col-lg-10">
+                                            <input type="text" placeholder="" id="f-name" class="form-control" name="Yorum">
+                                            <input type="hidden" value="@Model.id" name="Otelid" />
+                                            <input type="hidden" value="1" name="Musterid" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-lg-offset-2 col-lg-10">
+                                            <button class="btn btn-danger" type="submit">Yorum Yap</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="tab-pane" id="reviews">
+                                @foreach (var item in Model.Yorum)
+                                { 
+                                    <div class="product-review">
+                                        <div class="product-review-avatar">
+                                        </div>
+                                        <strong>@item.Musteri.Adi</strong>
+                                        <p>@item.yorum1</p>
+                                    </div>    
+                                }
+                                <a href="#" class="button-6" data-toggle="modal" data-target="#write-review">Write a review</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="tesla-carousel" data-tesla-plugin="carousel" data-tesla-container=".tesla-carousel-items" data-tesla-item=">div" data-tesla-autoplay="false" data-tesla-rotate="false">
+                <div class="site-title">
+                    <ul class="wrapper-arrows">
+                        <li><i class="icon-517 prev" title="left arrow"></i></li>
+                        <li><i class="icon-501 next" title="right arrow"></i></li>
+                    </ul>
+                    <div class="site-inside"><span>We also recommend</span></div>
+                </div>
+                <div class="row">
+                    <div class="tesla-carousel-items">
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-4.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Black Dress</a></h1>
+                                    <p>Black evening dress of genuine tissue</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $135
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-3.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Black Dress</a></h1>
+                                    <p>Black evening dress of genuine tissue</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $135
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-2.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Black Dress</a></h1>
+                                    <p>Black evening dress of genuine tissue</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $135
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-1.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Black Dress</a></h1>
+                                    <p>Black evening dress of genuine tissue</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $135
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-4.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Red Dress</a></h1>
+                                    <p>Red evening dress for tonight</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $335
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-3.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Burgunday Dress</a></h1>
+                                    <p>Burgunday velvet</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $85
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-2.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Jacquard Dress</a></h1>
+                                    <p>Grey jacquard dress</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $115
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 col-xs-6">
+                            <div class="product">
+                                <div class="product-cover">
+                                    <div class="product-cover-hover"><span><a href="product.html">View</a></span></div>
+                                    <img src="images/photos/recommand-1.jpg" alt="product name" />
+                                </div>
+                                <div class="product-details">
+                                    <h1><a href="#">Jacquard Dress</a></h1>
+                                    <p>Grey jacquard dress</p>
+                                    <div class="product-price">
+                                        <i class="icon-257" title="add to cart"></i>
+                                        $115
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
